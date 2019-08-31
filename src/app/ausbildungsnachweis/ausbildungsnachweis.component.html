@@ -14,7 +14,7 @@
 <div *ngFor="let nachweis of nachweisWoche | async" class="paper">
   <div class="columns">
     <div class="column is-6 has-text-left has-text-weight-bold">Ausbildungsnachweis Nr. {{ nachweis.nummer }}</div>
-    <div class="column is-6 has-text-right has-text-weight-bold">Woche vom 17.06.19 bis 21.06.19</div>
+    <div class="column is-6 has-text-right has-text-weight-bold">Woche vom {{ getDate(nachweis.wocheIso, 2019) }}</div>
   </div>
   <div class="columns">
     <div class="column has-text-centered has-text-weight-bold">GFN AG, Fachinformatiker FISI 17</div>
