@@ -8,6 +8,7 @@
 
 @media print {
   body {
+    background-color: white;
     color: black;
     width: 21cm;
     height: 29.7cm;
