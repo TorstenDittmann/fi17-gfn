@@ -43,7 +43,7 @@ export class AusbildungsnachweisComponent implements OnInit {
     const d = new Date(year, 0, 1);
     const dayNum = d.getDay();
     let requiredDate = (weeks - 2) * 7;
-    if (((dayNum != 0) || dayNum > 4)) {
+    if (((dayNum !== 0) || dayNum > 4)) {
       requiredDate += 7;
     }
     d.setDate(1 - d.getDay() + ++requiredDate);
