@@ -29,10 +29,8 @@ export class AusbildungsnachweisComponent implements OnInit {
     this.nachweisWoche = this.service.loadNachweis(this.nachweisNummer);
     this.benutzer = JSON.parse(localStorage.getItem('user'));
     this.benutzerDaten = this.afs.doc(`users/${this.benutzer.uid}`).valueChanges();
-    console.log(this.getDateByWeek(35, 2019));
   }
   getDate(weekIso, year) {
-    console.log(weekIso, year);
     const d = this.getDateByWeek(weekIso, year);
     const montag = new Date(d.getFullYear(), d.getMonth(), d.getDate());
     const freitag = new Date(d.getFullYear(), d.getMonth(), (d.getDate() + 4));

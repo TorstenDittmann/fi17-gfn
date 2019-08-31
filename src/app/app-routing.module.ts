@@ -9,6 +9,7 @@ import { AusbildungsnachweiseComponent } from './ausbildungsnachweise/ausbildung
 import { AuthGuard } from './shared/auth.guard';
 import { SecureInnerPagesGuard } from './shared/secure-inner-pages.guard';
 import { AusbildungsnachweisComponent } from './ausbildungsnachweis/ausbildungsnachweis.component';
+import { RegisterComponent } from './register/register.component';
 
 
 const routes: Routes = [
@@ -20,6 +21,11 @@ const routes: Routes = [
   {
     path: 'login',
     component: LoginComponent,
+    canActivate: [SecureInnerPagesGuard]
+  },
+  {
+    path: 'register',
+    component: RegisterComponent,
     canActivate: [SecureInnerPagesGuard]
   },
   {
