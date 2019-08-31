@@ -1,0 +1,32 @@
+.paper {
+  font-size: 0.9em;
+}
+.border {
+  border-color: black;
+  border-style: solid;
+  border-width: 0px;
+}
+
+.bfull {
+  border-width: 1px 1px 0px 1px;
+}
+
+.bfull-last {
+  border-width: 1px 1px 1px 1px;
+}
+
+.bright {
+  border-right-width: 1px;
+}
+
+.bright-left {
+  border-right-width: 1px;
+  border-left-width: 1px;
+
+}
+
+.vertical-text  {
+  text-align: center;
+	transform: rotate(-180deg);
+  writing-mode:vertical-rl;
+}

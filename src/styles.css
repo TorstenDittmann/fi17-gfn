@@ -1,1 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
+@media print {
+  body {
+    width: 21cm;
+    height: 29.7cm;
+  }
+  .noprint {
+    display:none;
+  }
+}

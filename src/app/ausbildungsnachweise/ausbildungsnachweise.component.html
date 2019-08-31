@@ -1,1 +1,30 @@
-<p>ausbildungsnachweise works!</p>
+<div class="table-container">
+  <table class="table table is-striped is-fullwidth">
+    <thead>
+      <th>#</th>
+      <th>Jahr</th>
+      <th>KW</th>
+      <th>Dozent</th>
+      <th>Aktion</th>
+    </thead>
+    <tbody>
+      <tr *ngFor="let nachweis of nachweise | async">
+        <td>{{ nachweis.nummer }}</td>
+        <td>{{ nachweis.jahr }}</td>
+        <td>{{ nachweis.wocheIso }}</td>
+        <td>{{ nachweis.dozent }}</td>
+        <td>
+          <a
+            class="button is-primary is-outlined"
+            [routerLink]="['/ausbildungsnachweise', nachweis.nummer]"
+          >
+            <span>Öffnen</span>
+            <span class="icon is-small">
+              <i class="fas fa-arrow-right"></i>
+            </span>
+          </a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

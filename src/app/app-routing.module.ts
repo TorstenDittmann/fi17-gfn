@@ -8,6 +8,7 @@ import { AusbildungsnachweiseComponent } from './ausbildungsnachweise/ausbildung
 
 import { AuthGuard } from './shared/auth.guard';
 import { SecureInnerPagesGuard } from './shared/secure-inner-pages.guard';
+import { AusbildungsnachweisComponent } from './ausbildungsnachweis/ausbildungsnachweis.component';
 
 
 const routes: Routes = [
@@ -34,6 +35,11 @@ const routes: Routes = [
   {
     path: 'ausbildungsnachweise',
     component: AusbildungsnachweiseComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'ausbildungsnachweise/:nummer',
+    component: AusbildungsnachweisComponent,
     canActivate: [AuthGuard]
   }
 ];

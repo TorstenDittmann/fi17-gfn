@@ -1,0 +1,127 @@
+<a class="button is-primary noprint" routerLink="/ausbildungsnachweise">
+  <span class="icon">
+    <i class="fa fa-arrow-alt-circle-left"></i>
+  </span>
+  <span>zurück</span>
+</a>
+<hr class="noprint">
+<div *ngFor="let nachweis of nachweisWoche | async" class="paper">
+  <div class="columns">
+    <div class="column is-6 has-text-left has-text-weight-bold">Ausbildungsnachweis Nr. {{ nachweis.nummer }}</div>
+    <div class="column is-6 has-text-right has-text-weight-bold">Woche vom 17.06.19 bis 21.06.19</div>
+  </div>
+  <div class="columns">
+    <div class="column has-text-centered has-text-weight-bold">GFN AG, Fachinformatiker FISI 17</div>
+  </div>
+  <div class="columns border bfull has-text-weight-bold">
+    <div class="column is-narrow"></div>
+    <div class="column">
+      Ausgeführte Arbeiten, Unterweisungen, Schulunterricht usw.
+    </div>
+    <div class="column is-narrow">Gesamtstunden</div>
+  </div>
+  <div class="columns border bfull">
+    <div class="column is-narrow border vertical-text has-text-weight-bold">Montag</div>
+    <div class="column border bright-left">
+      {{ nachweis.tag1 }}
+    </div>
+    <div class="column is-1">8</div>
+  </div>
+  <div class="columns border bfull">
+    <div class="column is-narrow border vertical-text has-text-weight-bold">Dienstag</div>
+    <div class="column  border bright-left">
+      {{ nachweis.tag2 }}
+    </div>
+    <div class="column is-1">8</div>
+  </div>
+  <div class="columns border bfull">
+    <div class="column is-narrow border vertical-text has-text-weight-bold">Mittwoch</div>
+    <div class="column border bright-left">
+      {{ nachweis.tag3 }}
+    </div>
+    <div class="column is-1">8</div>
+  </div>
+  <div class="columns border bfull">
+    <div class="column is-narrow border vertical-text has-text-weight-bold">Donnerstag</div>
+    <div class="column border bright-left">
+      {{ nachweis.tag4 }}
+    </div>
+    <div class="column is-1">8</div>
+  </div>
+  <div class="columns border bfull-last">
+    <div class="column is-narrow border vertical-text has-text-weight-bold">Freitag</div>
+    <div class="column border bright-left">
+      {{ nachweis.tag5 }}
+    </div>
+    <div class="column is-1">8</div>
+  </div>
+  <div class="columns">
+    <div class="column has-text-weight-bold">
+      Für die Richtigkeit
+    </div>
+  </div>
+  <div class="columns">
+    <div class="column is-4 border bfull">
+      <div class="columns">
+        <div class="column">Auszubildender</div>
+        <div class="column has-text-right">{{ (benutzerDaten | async)?.displayName }}</div>
+      </div>
+      <div class="columns">
+        <div class="column"></div>
+        <div class="column"></div>
+      </div>
+    </div>
+    <div class="column is-4 border bfull">
+      <div class="columns">
+        <div class="column">Dozent</div>
+        <div class="column has-text-right">{{ nachweis.dozent }}</div>
+      </div>
+      <div class="columns">
+        <div class="column"></div>
+        <div class="column"></div>
+      </div>
+    </div>
+    <div class="column is-4 border bfull">
+      <div class="columns">
+        <div class="column">Ausbilder</div>
+        <div class="column has-text-right">{{ (benutzerDaten | async)?.ausbilder }}</div>
+      </div>
+      <div class="columns">
+        <div class="column"></div>
+        <div class="column"></div>
+      </div>
+    </div>
+  </div>
+  <div class="columns">
+    <div class="column is-4 border bfull-last">
+      <div class="columns">
+        <div class="column">Datum</div>
+        <div class="column has-text-right">Unterschrift</div>
+      </div>
+      <div class="columns">
+        <div class="column"></div>
+        <div class="column"></div>
+      </div>
+    </div>
+    <div class="column is-4 border bfull-last">
+      <div class="columns">
+        <div class="column">Datum</div>
+        <div class="column has-text-right">Unterschrift</div>
+      </div>
+      <div class="columns">
+        <div class="column"></div>
+        <div class="column"></div>
+      </div>
+    </div>
+    <div class="column is-4 border bfull-last">
+      <div class="columns">
+        <div class="column">Datum</div>
+        <div class="column has-text-right">Unterschrift</div>
+      </div>
+      <div class="columns">
+        <div class="column"></div>
+        <div class="column"></div>
+      </div>
+    </div>
+  </div>
+</div>

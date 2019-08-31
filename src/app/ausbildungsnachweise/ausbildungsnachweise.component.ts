@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AusbildungsnachweisService } from '../shared/ausbildungsnachweis.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-ausbildungsnachweise',
@@ -7,9 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AusbildungsnachweiseComponent implements OnInit {
 
-  constructor() { }
+  nachweise: Observable<any[]>;
+
+  constructor(public ausbildungsnachweis: AusbildungsnachweisService) { }
 
   ngOnInit() {
+    this.nachweise = this.ausbildungsnachweis.loadData();
   }
 
 }

@@ -34,10 +34,8 @@ export class AuthService {
 
   // Sign in with email/password
   SignIn(email, password) {
-    console.log(email);
     return this.afAuth.auth.signInWithEmailAndPassword(email, password)
       .then((result) => {
-        console.log(result);
         this.ngZone.run(() => {
           this.router.navigate(['startseite']);
         });
@@ -100,8 +98,7 @@ export class AuthService {
     const userRef: AngularFirestoreDocument<any> = this.afs.doc(`users/${user.uid}`);
     const userData: User = {
       uid: user.uid,
-      email: user.email,
-      displayName: user.displayName
+      email: user.email
     };
     return userRef.set(userData, {
       merge: true
