@@ -10,7 +10,8 @@ import { Router } from '@angular/router';
 })
 
 export class AuthService {
-  userData: any;
+  public userData: any;
+
 
   constructor(
     public afs: AngularFirestore,   // Inject Firestore service
@@ -96,12 +97,22 @@ export class AuthService {
   provider in Firestore database using AngularFirestore + AngularFirestoreDocument service */
   SetUserData(user) {
     const userRef: AngularFirestoreDocument<any> = this.afs.doc(`users/${user.uid}`);
-    const userData: User = {
-      uid: user.uid,
-      email: user.email
-    };
-    return userRef.set(userData, {
-      merge: true
+    let tmpData;
+    let userData;
+    userRef.get().toPromise().then((val) => {
+      tmpData = val.data();
+    }).then(() => {
+      userData = {
+        uid: user.uid,
+        email: user.email,
+        displayName: tmpData.displayName,
+        ausbilder: tmpData.ausbilder
+      };
+    }
+    ).then(() => {
+      return userRef.set(userData, {
+        merge: true
+      });
     });
   }
 

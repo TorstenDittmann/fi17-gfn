@@ -4,6 +4,12 @@
   </span>
   <span>zurück</span>
 </a>
+<a class="button is-success noprint is-pulled-right" onclick="window.print()">
+  <span>Drucken</span>
+  <span class="icon">
+    <i class="fas fa-print"></i>
+  </span>
+</a>
 <hr class="noprint">
 <div *ngFor="let nachweis of nachweisWoche | async" class="paper">
   <div class="columns">

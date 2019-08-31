@@ -14,7 +14,7 @@ import { AngularFirestore } from '@angular/fire/firestore';
 export class AusbildungsnachweisComponent implements OnInit {
   nachweisNummer: number;
   nachweisWoche: Observable<any[]>;
-  benutzer: User;
+  benutzer: any;
   benutzerDaten: Observable<any>;
 
   constructor(
@@ -27,7 +27,7 @@ export class AusbildungsnachweisComponent implements OnInit {
   ngOnInit() {
     this.nachweisNummer = +this.route.snapshot.paramMap.get('nummer');
     this.nachweisWoche = this.service.loadNachweis(this.nachweisNummer);
-    this.benutzer = this.user.userData;
+    this.benutzer = JSON.parse(localStorage.getItem('user'));
     this.benutzerDaten = this.afs.doc(`users/${this.benutzer.uid}`).valueChanges();
   }
 
