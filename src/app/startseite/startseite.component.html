@@ -3,20 +3,26 @@
     <div class="tile">
       <div class="tile is-parent is-vertical">
         <article class="tile is-child notification is-primary">
-          <a href="https://github.com/TorstenDittmann/fi17-gfn" target="_blank"><p class="title">Quelltext</p></a>
-          <p class="subtitle">Den Code findest ihr auf GitHub.</p>
+          <p class="title">Dein Name</p>
+          <div class="field">
+              <div class="control">
+                <input #displayName (input)="editDisplayName(displayName.value)" value="{{ (benutzerDaten | async)?.displayName }}" class="input is-large" type="text" placeholder="Vor- und Nachname">
+              </div>
+            </div>
         </article>
-        <article class="tile is-child notification is-warning">
-          <p class="title">...tiles</p>
-          <p class="subtitle">Bottom tile</p>
+        <article class="tile is-child notification is-info">
+            <p class="title">Dein Ausbilder</p>
+            <div class="field">
+                <div class="control">
+                  <input #ausbilder (input)="editAusbilder(ausbilder.value)" value="{{ (benutzerDaten | async)?.ausbilder }}" class="input is-large" type="text" placeholder="Dein Ausbilder">
+                </div>
+              </div>
         </article>
       </div>
       <div class="tile is-parent">
         <article class="tile is-child notification is-info">
-          <p class="title">Middle tile</p>
-          <p class="subtitle">With an image</p>
-          <figure class="image is-4by3">
-            <img src="https://bulma.io/images/placeholders/640x480.png" />
+          <figure class="image">
+            <img src="http://i.imgur.com/9JttPJy.png" />
           </figure>
         </article>
       </div>
@@ -36,6 +42,10 @@
         <div class="content">
           <p>Unter Ausbildungsnachweise findet ihr die Übersicht aller bisherigen Nachweise.</p>
         </div>
+        <p class="subtitle">Was kommt bald noch?</p>
+        <div class="content">
+            <p>Da wir uns bald aufteilen, kann jeder bald seine Fachrichtung angeben.</p>
+          </div>
       </div>
     </article>
   </div>

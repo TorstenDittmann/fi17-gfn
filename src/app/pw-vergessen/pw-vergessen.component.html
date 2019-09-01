@@ -1,38 +1,32 @@
-<div class="displayTable">
-  <div class="displayTableCell">
-    <div class="authBlock">
-      <h3>Reset Password</h3>
-
-      <p class="text-center">
-        Please enter your email address to request a password reset.
-      </p>
-
-      <div class="formGroup">
+<div class="columns is-centered">
+  <div class="column is-8-tablet is-6-desktop is-4-widescreen">
+    <div class="field">
+      <label for="" class="label">Email</label>
+      <div class="control has-icons-left">
         <input
-          type="email"
-          class="formControl"
-          placeholder="Email Address"
           #passwordResetEmail
+          type="email"
+          placeholder="z.B. bill.gates@gmail.com"
+          class="input"
           required
         />
-      </div>
-
-      <!-- Calling ForgotPassword from AuthService Api -->
-      <div class="formGroup">
-        <input
-          type="submit"
-          class="btn btnPrimary"
-          value="Reset Password"
-          (click)="authService.ForgotPassword(passwordResetEmail.value)"
-        />
+        <span class="icon is-small is-left">
+          <i class="fa fa-envelope"></i>
+        </span>
       </div>
     </div>
-
-    <div class="redirectToLogin">
-      <span
-        >Go back to ?
-        <span class="redirect" routerLink="/sign-in">Log In</span></span
+    <div class="field">
+      <button
+        class="button is-success"
+        (click)="authService.ForgotPassword(passwordResetEmail.value)"
       >
+        Passwort zurücksetzen
+      </button>
+    </div>
+    <div class="field">
+      <label for="" class="checkbox">
+        <a routerLink="/login">zurück zur Anmeldung</a>
+      </label>
     </div>
   </div>
 </div>

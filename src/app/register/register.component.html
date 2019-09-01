@@ -1,25 +1,47 @@
-<div class="displayTable">
-  <div class="displayTableCell">
-
-    <div class="authBlock">
-      <h3>Sign Up</h3>
-
-      <div class="formGroup">
-        <input type="email" class="formControl" placeholder="Email Address" #userEmail required>
-      </div>
-
-      <div class="formGroup">
-        <input type="password" class="formControl" placeholder="Password" #userPwd required>
-      </div>
-
-      <div class="formGroup">
-        <input type="button" class="btn btnPrimary" value="Sign Up" (click)="authService.SignUp(userEmail.value, userPwd.value)">
+<div class="columns is-centered">
+  <div class="column is-8-tablet is-6-desktop is-4-widescreen">
+    <div class="field">
+      <label for="" class="label">Email</label>
+      <div class="control has-icons-left">
+        <input
+          #userEmail
+          type="email"
+          placeholder="z.B. bill.gates@gmail.com"
+          class="input"
+          required
+        />
+        <span class="icon is-small is-left">
+          <i class="fa fa-envelope"></i>
+        </span>
       </div>
     </div>
-
-    <div class="redirectToLogin">
-      <span>Already have an account? <span class="redirect" routerLink="/sign-in">Log In</span></span>
+    <div class="field">
+      <label for="" class="label">Passwort</label>
+      <div class="control has-icons-left">
+        <input
+        #userPwd
+          type="password"
+          placeholder="*******"
+          class="input"
+          required
+        />
+        <span class="icon is-small is-left">
+          <i class="fa fa-lock"></i>
+        </span>
+      </div>
+    </div>
+    <div class="field">
+      <button
+        class="button is-success"
+        (click)="authService.SignUp(userEmail.value, userPwd.value)"
+      >
+        Registrieren
+      </button>
+    </div>
+    <div class="field">
+      <label for="" class="checkbox">
+        <a routerLink="/passwort-vergessen">Passwort vergessen</a>
+      </label>
     </div>
   </div>
-
 </div>

@@ -24,6 +24,7 @@
           placeholder="*******"
           class="input"
           required
+          (keyup.enter)="authService.SignIn(userName.value, userPassword.value)"
         />
         <span class="icon is-small is-left">
           <i class="fa fa-lock"></i>
@@ -32,7 +33,7 @@
     </div>
     <div class="field">
       <button
-        class="button is-success"
+        class="button is-success is-fullwidth"
         (click)="authService.SignIn(userName.value, userPassword.value)"
       >
         Login
