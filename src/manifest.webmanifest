@@ -1,8 +1,8 @@
 {
-  "name": "fi17-gfn",
-  "short_name": "fi17-gfn",
-  "theme_color": "#1976d2",
-  "background_color": "#fafafa",
+  "name": "FI17 Portal",
+  "short_name": "FI17 Portal",
+  "theme_color": "#375a7f",
+  "background_color": "#375a7f",
   "display": "standalone",
   "scope": "/",
   "start_url": "/",
