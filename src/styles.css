@@ -9,6 +9,7 @@
 @media print {
   html {
     padding-top: 0px !important;
+    background-color: white !important;
   }
   body {
     background-color: white;
