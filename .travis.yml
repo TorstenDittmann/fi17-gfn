@@ -12,9 +12,6 @@ addons:
   chrome: stable
 
 script:
+  - npm install -g firebase-tools
   - npm run build --prod
-  
-deploy:
-  provider: firebase
-    token:
-      secure: $FIREBASE_TOKEN
+  - firebase deploy --project fi17-gfn --token $FIREBASE_TOKEN
