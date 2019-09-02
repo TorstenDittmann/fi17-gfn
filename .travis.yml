@@ -12,9 +12,9 @@ addons:
   chrome: stable
 
 script:
- - echo "Deploy!!"
- - npm install -g firebase-tools
-script:
-  - npm run lint
   - npm run build --prod
-  - firebase deploy --project fi17-gfn --token $FIREBASE_TOKEN
+  
+deploy:
+  provider: firebase
+    token:
+      secure: $FIREBASE_TOKEN
