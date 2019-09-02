@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
+import { version } from '../../../package.json';
 
 @Component({
   selector: 'app-startseite',
@@ -8,6 +9,7 @@ import { Observable } from 'rxjs';
   styleUrls: ['./startseite.component.css']
 })
 export class StartseiteComponent implements OnInit {
+  public version: string = version;
   benutzerDaten: Observable<any>;
   benutzer: any;
   benutzerDoc: AngularFirestoreDocument<any>;
