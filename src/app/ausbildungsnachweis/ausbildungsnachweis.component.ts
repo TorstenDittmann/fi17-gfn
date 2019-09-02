@@ -41,8 +41,8 @@ export class AusbildungsnachweisComponent implements OnInit {
     const d = this.getDateByWeek(weekIso, year);
     const montag = new Date(d.getFullYear(), d.getMonth(), d.getDate());
     const freitag = new Date(d.getFullYear(), d.getMonth(), (d.getDate() + 4));
-    return montag.getDate() + '.' + (montag.getMonth() + 1) + '.' + montag.getFullYear() +
-      ' - ' + freitag.getDate() + '.' + (freitag.getMonth() + 1) + '.' + freitag.getFullYear();
+    return this.zeroPad(montag.getDate(), 2) + '.' + this.zeroPad((montag.getMonth() + 1), 2) + '.' + montag.getFullYear() +
+      ' - ' + this.zeroPad(freitag.getDate(), 2) + '.' + this.zeroPad((freitag.getMonth() + 1), 2) + '.' + freitag.getFullYear();
   }
 
   getDateByWeek(weeks, year) {
@@ -54,5 +54,9 @@ export class AusbildungsnachweisComponent implements OnInit {
     }
     d.setDate(1 - d.getDay() + ++requiredDate);
     return d;
+  }
+  zeroPad(num, places) {
+    const zero = places - num.toString().length + 1;
+    return Array(+(zero > 0 && zero)).join('0') + num;
   }
 }
