@@ -17,6 +17,12 @@ export class AusbildungsnachweisComponent implements OnInit {
   benutzer: any;
   benutzerDaten: Observable<any>;
 
+  tag1 = true;
+  tag2 = true;
+  tag3 = true;
+  tag4 = true;
+  tag5 = true;
+
   constructor(
     private route: ActivatedRoute,
     private service: AusbildungsnachweisService,
@@ -30,6 +36,7 @@ export class AusbildungsnachweisComponent implements OnInit {
     this.benutzer = JSON.parse(localStorage.getItem('user'));
     this.benutzerDaten = this.afs.doc(`users/${this.benutzer.uid}`).valueChanges();
   }
+
   getDate(weekIso, year) {
     const d = this.getDateByWeek(weekIso, year);
     const montag = new Date(d.getFullYear(), d.getMonth(), d.getDate());
@@ -37,6 +44,7 @@ export class AusbildungsnachweisComponent implements OnInit {
     return montag.getDate() + '.' + montag.getMonth() + '.' + montag.getFullYear() +
       ' - ' + freitag.getDate() + '.' + freitag.getMonth() + '.' + freitag.getFullYear();
   }
+
   getDateByWeek(weeks, year) {
     const d = new Date(year, 0, 1);
     const dayNum = d.getDay();

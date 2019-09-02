@@ -52,7 +52,11 @@ export class AuthService {
       .then((result) => {
         /* Call the SendVerificaitonMail() function when new user sign
         up and returns promise */
-        this.SetUserDataFirst(result.user);
+        this.SetUserDataFirst(result.user).then(() => {
+          this.ngZone.run(() => {
+            this.router.navigate(['startseite']);
+          });
+        });
       }).catch((error) => {
         window.alert(error.message);
       });
