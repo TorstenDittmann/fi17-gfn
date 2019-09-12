@@ -19,6 +19,7 @@ import { environment } from '../environments/environment';
 import { AusbildungsnachweisComponent } from './ausbildungsnachweis/ausbildungsnachweis.component';
 import { RegisterComponent } from './register/register.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,8 @@ import { ServiceWorkerModule } from '@angular/service-worker';
   ],
   imports: [
     BrowserModule,
+    FormsModule,
+    ReactiveFormsModule,
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,

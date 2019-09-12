@@ -13,6 +13,7 @@ import { AngularFirestore } from '@angular/fire/firestore';
 })
 export class AusbildungsnachweisComponent implements OnInit {
   nachweisNummer: number;
+  nachweisFachrichtung: string;
   nachweisWoche: Observable<any[]>;
   benutzer: any;
   benutzerDaten: Observable<any>;
@@ -32,7 +33,8 @@ export class AusbildungsnachweisComponent implements OnInit {
 
   ngOnInit() {
     this.nachweisNummer = +this.route.snapshot.paramMap.get('nummer');
-    this.nachweisWoche = this.service.loadNachweis(this.nachweisNummer);
+    this.nachweisFachrichtung = this.route.snapshot.paramMap.get('fachrichtung');
+    this.nachweisWoche = this.service.loadNachweis(this.nachweisFachrichtung, this.nachweisNummer,);
     this.benutzer = JSON.parse(localStorage.getItem('user'));
     this.benutzerDaten = this.afs.doc(`users/${this.benutzer.uid}`).valueChanges();
   }

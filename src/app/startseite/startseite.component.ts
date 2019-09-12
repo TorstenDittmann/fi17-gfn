@@ -34,4 +34,10 @@ export class StartseiteComponent implements OnInit {
     });
   }
 
+  editFachrichtung(value) {
+    this.benutzerDoc.update({
+      fachrichtung: value
+    });
+  }
+
 }

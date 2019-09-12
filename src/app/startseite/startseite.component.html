@@ -5,33 +5,81 @@
         <article class="tile is-child notification is-primary">
           <p class="title">Dein Name</p>
           <div class="field">
-              <div class="control">
-                <input #displayName (input)="editDisplayName(displayName.value)" value="{{ (benutzerDaten | async)?.displayName }}" class="input is-large" type="text" placeholder="Vor- und Nachname">
-              </div>
+            <div class="control">
+              <input
+                #displayName
+                (input)="editDisplayName(displayName.value)"
+                value="{{ (benutzerDaten | async)?.displayName }}"
+                class="input is-large"
+                type="text"
+                placeholder="Vor- und Nachname"
+              />
             </div>
+          </div>
         </article>
         <article class="tile is-child notification is-info">
-            <p class="title">Dein Ausbilder</p>
-            <div class="field">
-                <div class="control">
-                  <input #ausbilder (input)="editAusbilder(ausbilder.value)" value="{{ (benutzerDaten | async)?.ausbilder }}" class="input is-large" type="text" placeholder="Dein Ausbilder">
-                </div>
-              </div>
+          <p class="title">Dein Ausbilder</p>
+          <div class="field">
+            <div class="control">
+              <input
+                #ausbilder
+                (input)="editAusbilder(ausbilder.value)"
+                value="{{ (benutzerDaten | async)?.ausbilder }}"
+                class="input is-large"
+                type="text"
+                placeholder="Dein Ausbilder"
+              />
+            </div>
+          </div>
         </article>
       </div>
       <div class="tile is-parent">
         <article class="tile is-child notification is-info">
-          <figure class="image">
-            <img src="https://i.imgur.com/9JttPJy.png" />
-          </figure>
+          <p class="title">Deine Fachrichtung</p>
+          <div class="field">
+            <div class="control">
+              <a
+                (click)="editFachrichtung('si')"
+                class="button is-large is-fullwidth"
+                [ngClass]="{
+                  'is-success': (benutzerDaten | async)?.fachrichtung == 'si'
+                }"
+              >
+                <span
+                  class="icon is-small"
+                  *ngIf="(benutzerDaten | async)?.fachrichtung == 'si'"
+                >
+                  <i class="fas fa-check"></i>
+                </span>
+                <span>Systemintegration</span>
+              </a>
+              <a
+                (click)="editFachrichtung('ae')"
+                class="button is-large is-fullwidth"
+                [ngClass]="{
+                  'is-success': (benutzerDaten | async)?.fachrichtung == 'ae'
+                }"
+              >
+                <span
+                  class="icon is-small"
+                  *ngIf="(benutzerDaten | async)?.fachrichtung == 'ae'"
+                >
+                  <i class="fas fa-check"></i>
+                </span>
+                <span>Anwendungsentwicklung</span>
+              </a>
+            </div>
+          </div>
         </article>
       </div>
     </div>
     <div class="tile is-parent">
       <article class="tile is-child notification is-danger">
-        <a href="https://github.com/TorstenDittmann/fi17-gfn" target="_blank"><p class="title">Quelltext</p></a>
-          <p class="subtitle">Den Code findet ihr auf GitHub.</p>
-          <p class="subtitle">Version: {{ version }}</p>
+        <a href="https://github.com/TorstenDittmann/fi17-gfn" target="_blank"
+          ><p class="title">Quelltext</p></a
+        >
+        <p class="subtitle">Den Code findet ihr auf GitHub.</p>
+        <p class="subtitle">Version: {{ version }}</p>
       </article>
     </div>
   </div>
@@ -41,12 +89,18 @@
         <p class="title">Anleitung</p>
         <p class="subtitle">Wie läuft das hier?</p>
         <div class="content">
-          <p>Unter Ausbildungsnachweise findet ihr die Übersicht aller bisherigen Nachweise.</p>
+          <p>
+            Unter Ausbildungsnachweise findet ihr die Übersicht aller bisherigen
+            Nachweise.
+          </p>
         </div>
         <p class="subtitle">Was kommt bald noch?</p>
         <div class="content">
-            <p>Da wir uns bald aufteilen, kann jeder bald seine Fachrichtung angeben.</p>
-            <p>Im Praktikum kann jeder seinen Bericht in der App ausfüllen.</p>
+          <p>
+            Da wir uns bald aufteilen, kann jeder bald seine Fachrichtung
+            angeben.
+          </p>
+          <p>Im Praktikum kann jeder seinen Bericht in der App ausfüllen.</p>
         </div>
       </div>
     </article>

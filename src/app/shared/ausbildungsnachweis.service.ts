@@ -7,19 +7,22 @@ import { Observable } from 'rxjs';
 })
 export class AusbildungsnachweisService {
 
+
   constructor(public afs: AngularFirestore) { }
 
-  loadData() {
-    return this.afs.collection('weeks', ref => ref.orderBy('nummer', 'desc')).valueChanges();
+  loadData(fachrichtung: string) {
+    return this.afs.collection('weeks', ref =>
+    ref.orderBy('nummer', 'desc')
+    .where('fachrichtung', '==', fachrichtung)).valueChanges();
   }
 
-  loadNachweis(nummer: number) {
+  loadNachweis(fachrichtung: string, nummer: number) {
     return this.afs.collection('weeks', ref => ref.where('nummer', '==', nummer)).valueChanges();
   }
 
   getUserData(uid) {
-    const productsDocuments = this.afs.doc('users/' + uid);
-    return productsDocuments.get().toPromise();
+    const userDoc = this.afs.doc('users/' + uid);
+    return userDoc.get().toPromise();
   }
 
   init() { }

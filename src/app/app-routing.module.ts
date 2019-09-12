@@ -44,7 +44,7 @@ const routes: Routes = [
     canActivate: [AuthGuard]
   },
   {
-    path: 'ausbildungsnachweise/:nummer',
+    path: 'ausbildungsnachweise/:nummer/:fachrichtung',
     component: AusbildungsnachweisComponent,
     canActivate: [AuthGuard]
   }
