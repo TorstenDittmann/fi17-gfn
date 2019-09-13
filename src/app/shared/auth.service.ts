@@ -97,19 +97,21 @@ export class AuthService {
   }
 
   SetUserDataFirst(user) {
+    console.log('SetUserDataFirst');
     const userRef: AngularFirestoreDocument<any> = this.afs.doc(`users/${user.uid}`);
     const userData: User = {
       uid: user.uid,
       email: user.email
-    }
+    };
     return userRef.set(userData, {
       merge: true
-    })
+    });
   }
   /* Setting up user data when sign in with username/password,
   sign up with username/password and sign in with social auth
   provider in Firestore database using AngularFirestore + AngularFirestoreDocument service */
   SetUserData(user) {
+    console.log('SetUserData');
     const userRef: AngularFirestoreDocument<any> = this.afs.doc(`users/${user.uid}`);
     let tmpData;
     let userData;
@@ -120,7 +122,8 @@ export class AuthService {
         uid: user.uid,
         email: user.email,
         displayName: tmpData.displayName,
-        ausbilder: tmpData.ausbilder
+        ausbilder: tmpData.ausbilder,
+        fachrichtung: tmpData.fachrichtung
       };
     }
     ).then(() => {

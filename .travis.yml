@@ -13,5 +13,5 @@ addons:
 
 script:
   - npm install -g firebase-tools
-  - npm run build --prod
+  - ng build --prod
   - firebase deploy --project fi17-gfn --token $FIREBASE_TOKEN
