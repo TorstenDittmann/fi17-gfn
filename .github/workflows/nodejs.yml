@@ -19,7 +19,6 @@ jobs:
         node-version: ${{ matrix.node-version }}
     - name: npm install, build, and test
       run: |
-        sed -i 's/API_KEY_REPLACE/${API_KEY}/g' src/environments/environment.prod.ts
         npm install -g firebase-tools
         npm install
         npm run build
