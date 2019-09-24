@@ -1,0 +1,104 @@
+<a class="button is-primary noprint" routerLink="/ausbildungsnachweise">
+  <span class="icon">
+    <i class="fa fa-arrow-alt-circle-left"></i>
+  </span>
+  <span>zurück</span>
+</a>
+<a class="button is-success noprint is-pulled-right" (click)="updateNachweis()" *ngIf="!saveState">
+  <span>Speichern</span>
+  <span class="icon">
+    <i class="fas fa-save"></i>
+  </span>
+</a>
+<hr class="noprint" />
+<div class="form-horizontal" *ngIf="isAdmin">
+  <fieldset>
+
+    <!-- Text input-->
+    <div class="field">
+      <label class="label" for="dozent">Dozent</label>
+      <div class="control">
+        <input
+          id="dozent"
+          name="dozent"
+          type="text"
+          placeholder="Dozent eingeben."
+          class="input"
+          [(ngModel)]="inputDozent"
+          (ngModelChange)="switchSaveState()"
+        />
+        <p class="help">Im Format: Hr. Vasa | Fr. Müller</p>
+      </div>
+    </div>
+
+    <!-- Textarea -->
+    <div class="field">
+      <label class="label" for="tag1">Wochentag 1</label>
+      <div class="control">
+        <textarea
+          class="textarea"
+          id="tag1"
+          name="tag1"
+          [(ngModel)]="inputTag1"
+          (ngModelChange)="switchSaveState()"
+        ></textarea>
+      </div>
+    </div>
+
+    <!-- Textarea -->
+    <div class="field">
+      <label class="label" for="tag2">Wochentag 2</label>
+      <div class="control">
+        <textarea
+          class="textarea"
+          id="tag2"
+          name="tag2"
+          [(ngModel)]="inputTag2"
+          (ngModelChange)="switchSaveState()"
+        ></textarea>
+      </div>
+    </div>
+
+    <!-- Textarea -->
+    <div class="field">
+      <label class="label" for="tag3">Wochentag 3</label>
+      <div class="control">
+        <textarea
+          class="textarea"
+          id="tag3"
+          name="tag3"
+          [(ngModel)]="inputTag3"
+          (ngModelChange)="switchSaveState()"
+        ></textarea>
+      </div>
+    </div>
+
+    <!-- Textarea -->
+    <div class="field">
+      <label class="label" for="tag4">Wochentag 4</label>
+      <div class="control">
+        <textarea
+          class="textarea"
+          id="tag4"
+          name="tag4"
+          [(ngModel)]="inputTag4"
+          (ngModelChange)="switchSaveState()"
+        ></textarea>
+      </div>
+    </div>
+
+    <!-- Textarea -->
+    <div class="field">
+      <label class="label" for="tag5">Wochentag 5</label>
+      <div class="control">
+        <textarea
+          class="textarea"
+          id="tag5"
+          name="tag5"
+          [(ngModel)]="inputTag5"
+          (ngModelChange)="switchSaveState()"
+        ></textarea>
+      </div>
+    </div>
+  </fieldset>
+</div>

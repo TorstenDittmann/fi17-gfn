@@ -20,6 +20,7 @@ import { AusbildungsnachweisComponent } from './ausbildungsnachweis/ausbildungsn
 import { RegisterComponent } from './register/register.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AusbildungsnachweisVerwaltenComponent } from './ausbildungsnachweis-verwalten/ausbildungsnachweis-verwalten.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     LoginComponent,
     PwVergessenComponent,
     AusbildungsnachweisComponent,
-    RegisterComponent
+    RegisterComponent,
+    AusbildungsnachweisVerwaltenComponent
   ],
   imports: [
     BrowserModule,

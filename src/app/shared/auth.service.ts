@@ -1,9 +1,10 @@
+import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
 import { Injectable, NgZone } from '@angular/core';
+
+import { AngularFireAuth } from '@angular/fire/auth';
+import { Router } from '@angular/router';
 import { User } from './user';
 import { auth } from 'firebase/app';
-import { AngularFireAuth } from '@angular/fire/auth';
-import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
-import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -48,10 +49,8 @@ export class AuthService {
 
   // Sign up with email/password
   SignUp(email, password) {
-    return this.afAuth.auth.createUserWithEmailAndPassword(email, password)
+    /*return this.afAuth.auth.createUserWithEmailAndPassword(email, password)
       .then((result) => {
-        /* Call the SendVerificaitonMail() function when new user sign
-        up and returns promise */
         this.SetUserDataFirst(result.user).then(() => {
           this.ngZone.run(() => {
             this.router.navigate(['startseite']);
@@ -59,7 +58,8 @@ export class AuthService {
         });
       }).catch((error) => {
         window.alert(error.message);
-      });
+      });*/
+      window.alert('nope');
   }
 
   // Reset Forggot password
@@ -101,7 +101,7 @@ export class AuthService {
     const userRef: AngularFirestoreDocument<any> = this.afs.doc(`users/${user.uid}`);
     const userData: User = {
       uid: user.uid,
-      email: user.email
+      email: user.email,
     };
     return userRef.set(userData, {
       merge: true
@@ -123,10 +123,12 @@ export class AuthService {
         email: user.email,
         displayName: tmpData.displayName,
         ausbilder: tmpData.ausbilder,
-        fachrichtung: tmpData.fachrichtung
+        fachrichtung: tmpData.fachrichtung,
+        isAdmin: tmpData.isAdmin
       };
     }
     ).then(() => {
+      console.log(userData);
       return userRef.set(userData, {
         merge: true
       });

@@ -17,7 +17,24 @@
         <td>
           <a
             class="button is-outlined"
-            [routerLink]="['/ausbildungsnachweise', nachweis.nummer, nachweis.fachrichtung]"
+            [routerLink]="[
+              '/ausbildungsnachweise/verwalten',
+              nachweis.nummer,
+              nachweis.fachrichtung
+            ]"
+            *ngIf="isAdmin"
+          >
+            <span class="icon is-small">
+              <i class="fas fa-edit"></i>
+            </span>
+          </a>
+          <a
+            class="button is-outlined"
+            [routerLink]="[
+              '/ausbildungsnachweise',
+              nachweis.nummer,
+              nachweis.fachrichtung
+            ]"
           >
             <span>Öffnen</span>
             <span class="icon is-small">
@@ -49,7 +66,11 @@
         <td>
           <a
             class="button is-outlined"
-            [routerLink]="['/ausbildungsnachweise', nachweis.nummer, nachweis.fachrichtung]"
+            [routerLink]="[
+              '/ausbildungsnachweise',
+              nachweis.nummer,
+              nachweis.fachrichtung
+            ]"
           >
             <span>Öffnen</span>
             <span class="icon is-small">

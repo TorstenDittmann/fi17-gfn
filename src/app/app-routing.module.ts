@@ -1,16 +1,15 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 
-import { StartseiteComponent } from './startseite/startseite.component';
-import { LoginComponent } from './login/login.component';
-import { PwVergessenComponent } from './pw-vergessen/pw-vergessen.component';
-import { AusbildungsnachweiseComponent } from './ausbildungsnachweise/ausbildungsnachweise.component';
-
-import { AuthGuard } from './shared/auth.guard';
-import { SecureInnerPagesGuard } from './shared/secure-inner-pages.guard';
 import { AusbildungsnachweisComponent } from './ausbildungsnachweis/ausbildungsnachweis.component';
+import { AusbildungsnachweisVerwaltenComponent } from './ausbildungsnachweis-verwalten/ausbildungsnachweis-verwalten.component';
+import { AusbildungsnachweiseComponent } from './ausbildungsnachweise/ausbildungsnachweise.component';
+import { AuthGuard } from './shared/auth.guard';
+import { LoginComponent } from './login/login.component';
+import { NgModule } from '@angular/core';
+import { PwVergessenComponent } from './pw-vergessen/pw-vergessen.component';
 import { RegisterComponent } from './register/register.component';
-
+import { SecureInnerPagesGuard } from './shared/secure-inner-pages.guard';
+import { StartseiteComponent } from './startseite/startseite.component';
 
 const routes: Routes = [
   {
@@ -46,6 +45,11 @@ const routes: Routes = [
   {
     path: 'ausbildungsnachweise/:nummer/:fachrichtung',
     component: AusbildungsnachweisComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'ausbildungsnachweise/verwalten/:nummer/:fachrichtung',
+    component: AusbildungsnachweisVerwaltenComponent,
     canActivate: [AuthGuard]
   }
 ];
