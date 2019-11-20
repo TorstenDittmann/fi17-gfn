@@ -54,6 +54,7 @@ export class AusbildungsnachweisVerwaltenComponent implements OnInit {
       this.nachweisNummer = +this.route.snapshot.paramMap.get('nummer');
       if (this.fachrichtung == "praktikum") {
         this.isPraktikum = true;
+        this.isAdmin = true;
         this.nachweisWoche = this.service.loadPraktikum(this.benutzer.uid, this.nachweisNummer);
       } else {
         this.nachweisWoche = this.service.loadNachweis(this.nachweisFachrichtung, this.nachweisNummer);
