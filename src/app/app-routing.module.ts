@@ -10,6 +10,7 @@ import { PwVergessenComponent } from './pw-vergessen/pw-vergessen.component';
 import { RegisterComponent } from './register/register.component';
 import { SecureInnerPagesGuard } from './shared/secure-inner-pages.guard';
 import { StartseiteComponent } from './startseite/startseite.component';
+import { PraktikumComponent } from './praktikum/praktikum.component';
 
 const routes: Routes = [
   {
@@ -51,7 +52,12 @@ const routes: Routes = [
     path: 'ausbildungsnachweise/verwalten/:nummer/:fachrichtung',
     component: AusbildungsnachweisVerwaltenComponent,
     canActivate: [AuthGuard]
-  }
+  },
+  {
+    path: 'praktikum',
+    component: PraktikumComponent,
+    canActivate: [AuthGuard]
+  },
 ];
 
 @NgModule({

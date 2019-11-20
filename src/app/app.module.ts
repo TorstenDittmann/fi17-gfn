@@ -21,6 +21,7 @@ import { RegisterComponent } from './register/register.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AusbildungsnachweisVerwaltenComponent } from './ausbildungsnachweis-verwalten/ausbildungsnachweis-verwalten.component';
+import { PraktikumComponent } from './praktikum/praktikum.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { AusbildungsnachweisVerwaltenComponent } from './ausbildungsnachweis-ver
     PwVergessenComponent,
     AusbildungsnachweisComponent,
     RegisterComponent,
-    AusbildungsnachweisVerwaltenComponent
+    AusbildungsnachweisVerwaltenComponent,
+    PraktikumComponent
   ],
   imports: [
     BrowserModule,

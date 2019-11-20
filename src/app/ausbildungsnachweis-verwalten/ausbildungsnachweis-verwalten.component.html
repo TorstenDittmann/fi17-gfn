@@ -1,4 +1,4 @@
-<a class="button is-primary noprint" routerLink="/ausbildungsnachweise">
+<a class="button is-primary noprint" (click)="goBack()">
   <span class="icon">
     <i class="fa fa-arrow-alt-circle-left"></i>
   </span>
@@ -10,13 +10,19 @@
     <i class="fas fa-save"></i>
   </span>
 </a>
+<a class="button is-danger noprint is-pulled-right" (click)="deleteNachweis()" *ngIf="isPraktikum">
+    <span>Löschen</span>
+    <span class="icon">
+      <i class="fas fa-trash"></i>
+    </span>
+  </a>
 <hr class="noprint" />
 <div class="form-horizontal" *ngIf="isAdmin">
   <fieldset>
 
     <!-- Text input-->
     <div class="field">
-      <label class="label" for="dozent">Dozent</label>
+      <label class="label" for="dozent">Dozent/Betreuer</label>
       <div class="control">
         <input
           id="dozent"

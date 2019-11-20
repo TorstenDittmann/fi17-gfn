@@ -15,6 +15,18 @@ export class AusbildungsnachweisService {
         .where('fachrichtung', '==', fachrichtung)).valueChanges();
   }
 
+  loadAllPraktikum(uid) {
+    return this.afs.doc('users/' + uid).collection('praktikum', ref =>
+      ref.orderBy('nummer', 'desc')).valueChanges();
+  }
+
+  loadPraktikum(uid, nummer) {
+    return this.afs.doc('users/' + uid).collection(
+      'praktikum', ref =>
+      ref.where('nummer', '==', nummer))
+      .valueChanges({ idField: 'propertyId' });
+  }
+
   loadNachweis(fachrichtung: string, nummer: number) {
     return this.afs.collection(
       'weeks', ref =>

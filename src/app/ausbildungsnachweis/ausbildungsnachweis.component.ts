@@ -17,6 +17,7 @@ export class AusbildungsnachweisComponent implements OnInit {
   nachweisWoche: Observable<any[]>;
   benutzer: any;
   benutzerDaten: Observable<any>;
+  dozentTitel = "Dozent";
 
   constructor(
     private route: ActivatedRoute,
@@ -25,11 +26,16 @@ export class AusbildungsnachweisComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.nachweisNummer = +this.route.snapshot.paramMap.get('nummer');
-    this.nachweisFachrichtung = this.route.snapshot.paramMap.get('fachrichtung');
-    this.nachweisWoche = this.service.loadNachweis(this.nachweisFachrichtung, this.nachweisNummer);
     this.benutzer = JSON.parse(localStorage.getItem('user'));
     this.benutzerDaten = this.afs.doc(`users/${this.benutzer.uid}`).valueChanges();
+    this.nachweisNummer = +this.route.snapshot.paramMap.get('nummer');
+    this.nachweisFachrichtung = this.route.snapshot.paramMap.get('fachrichtung');
+    if(this.nachweisFachrichtung == "praktikum") {
+      this.dozentTitel = "Betreuer"
+      this.nachweisWoche = this.service.loadPraktikum(this.benutzer.uid, this.nachweisNummer);
+    } else {
+      this.nachweisWoche = this.service.loadNachweis(this.nachweisFachrichtung, this.nachweisNummer);
+    }
   }
 
   getDate(weekIso, year) {

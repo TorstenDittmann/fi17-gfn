@@ -1,0 +1,91 @@
+
+<h1>Eintrag hinzufügen</h1>
+<div class="form-horizontal">
+    <fieldset>
+  
+      <!-- Text input-->
+        <div class="field">
+            <label class="label" for="nachweisnummer">Nachweisnummer</label>
+            <div class="control">
+                <input
+                id="nachweisnummer"
+                name="nachweisnummer"
+                type="number"
+                placeholder="Nachweisnummer."
+                class="input"
+                [(ngModel)]="inputNummer"
+                />
+            </div>
+        </div>  
+        <!-- Text input-->
+        <div class="field">
+            <label class="label" for="kalenderwoche">Kalenderwoche</label>
+            <div class="control">
+                <input
+                id="kalenderwoche"
+                name="kalenderwoche"
+                type="number"
+                placeholder="Kalenderwoche (KW)."
+                class="input"
+                [(ngModel)]="inputWoche"
+                />
+            </div>
+        </div>
+        <!-- Text input-->
+        <div class="field">
+            <button class="button is-primary is-pulled-right" (click)="erstellen()">
+                    <span class="icon">
+                        <i class="fa fa-plus"></i>
+                    </span>
+                    <span>Erstellen</span>
+            </button>
+        </div>
+    </fieldset>
+</div>
+<hr>
+<h1>Praktikum</h1>
+<div class="table-container">
+  <table class="table table is-striped is-fullwidth">
+    <thead>
+      <th>#</th>
+      <th>Jahr</th>
+      <th>KW</th>
+      <th>Aktion</th>
+    </thead>
+    <tbody>
+      <tr *ngFor="let nachweis of nachweise | async">
+        <td>{{ nachweis.nummer }}</td>
+        <td>{{ nachweis.jahr }}</td>
+        <td>{{ nachweis.wocheIso }}</td>
+        <td>
+          <a
+            class="button is-outlined"
+            [routerLink]="[
+              '/ausbildungsnachweise/verwalten',
+              nachweis.nummer,
+              'praktikum'
+            ]"
+          >
+            <span>Bearbeiten</span>
+            <span class="icon is-small">
+              <i class="fas fa-edit"></i>
+            </span>
+          </a>
+          <a
+            class="button is-outlined"
+            [routerLink]="[
+              '/ausbildungsnachweise',
+              nachweis.nummer,
+              'praktikum'
+            ]"
+          >
+            <span>Öffnen</span>
+            <span class="icon is-small">
+              <i class="fas fa-arrow-right"></i>
+            </span>
+          </a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
